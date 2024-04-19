@@ -33,7 +33,7 @@ def airplane_image_file_path(instance, filename):
     _, extension = os.path.splitext(filename)
     filename = f"{slugify(instance.name)}-{uuid.uuid4()}{extension}"
 
-    return os.path.join("uploads/airplanes/", filename)
+    return os.path.join("uploads", "airplanes", filename)
 
 
 class AirplaneType(models.Model):
@@ -68,7 +68,7 @@ class Crew(models.Model):
     last_name = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return f"{self.first_name} {self.last_name}"
 
     @property
     def full_name(self):
